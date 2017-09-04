@@ -1,0 +1,36 @@
+--- 
+title: "Stata for Data Replicable Data Analysis: A Step-by-Step Guide"
+author: "Will Doyle and Ben Skinner"
+date: "`r Sys.Date()`"
+#site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: wdoyle42/stata_step
+description: "Stata for data analysis: a step-by-step guide"
+---
+
+# Preface {-}
+
+ This course is the first of a three semester series of courses
+  designed to introduce you to the *practice* of research,
+  particularly the applied side of quantitative research. The goal of
+  this course to help you to prepare a paper that can be presented at
+  a major research conference and, hopefully, submitted to a journal
+  for publication.
+
+  To accomplish this goal, you will choose from among publicly
+  available datasets. You will identify a research topic, then later a
+  research question. You will create a dataset using the publicly
+  available sources.  By the end of the semester, you will have a
+  properly formatted and cleaned dataset, with auxiliary information
+  from other sources included. Next semester we will analyze this
+  dataset. By the end of May, you will complete a paper based on this
+  analysis.
+
+  Along the way, you will develop skills that will be helpful in
+  future work using any kind of data. This class has a strong emphasis
+  on using programming skills to aid in the replication of work and to
+  simplify complex analyses.
