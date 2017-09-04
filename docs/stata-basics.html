@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stata for Replicable Data Analysis: A Step-by-Step Guide</title>
+  <meta name="description" content="Stata for data analysis: a step-by-step guide">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Stata for Replicable Data Analysis: A Step-by-Step Guide" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Stata for data analysis: a step-by-step guide" />
+  <meta name="github-repo" content="wdoyle42/stata_step" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Stata for Replicable Data Analysis: A Step-by-Step Guide" />
+  
+  <meta name="twitter:description" content="Stata for data analysis: a step-by-step guide" />
+  
+
+<meta name="author" content="Will Doyle and Ben Skinner">
+
+
+<meta name="date" content="2017-09-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="stata-basics.html"><a href="stata-basics.html"><i class="fa fa-check"></i><b>2</b> Stata Basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="stata-basics.html"><a href="stata-basics.html#a-template-for-do-files"><i class="fa fa-check"></i><b>2.1</b> A template for <code>do</code> files</a></li>
+<li class="chapter" data-level="2.2" data-path="stata-basics.html"><a href="stata-basics.html#downloading-packages-.ado-files"><i class="fa fa-check"></i><b>2.2</b> Downloading packages (<code>*.ado</code> files)</a></li>
+<li class="chapter" data-level="2.3" data-path="stata-basics.html"><a href="stata-basics.html#loading-data"><i class="fa fa-check"></i><b>2.3</b> Loading data</a></li>
+<li class="chapter" data-level="2.4" data-path="stata-basics.html"><a href="stata-basics.html#outsheet-dataset"><i class="fa fa-check"></i><b>2.4</b> <code>outsheet</code> dataset</a></li>
+<li class="chapter" data-level="2.5" data-path="stata-basics.html"><a href="stata-basics.html#insheet-dataset"><i class="fa fa-check"></i><b>2.5</b> <code>insheet</code> dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="stata-basics.html"><a href="stata-basics.html#describe-dataset"><i class="fa fa-check"></i><b>2.6</b> <code>describe</code> dataset</a></li>
+<li class="chapter" data-level="2.7" data-path="stata-basics.html"><a href="stata-basics.html#labeling-data-and-variables"><i class="fa fa-check"></i><b>2.7</b> Labeling data and variables</a></li>
+<li class="chapter" data-level="2.8" data-path="stata-basics.html"><a href="stata-basics.html#labeling-values-within-variables"><i class="fa fa-check"></i><b>2.8</b> Labeling values within variables</a></li>
+<li class="chapter" data-level="2.9" data-path="stata-basics.html"><a href="stata-basics.html#transforming-variables"><i class="fa fa-check"></i><b>2.9</b> Transforming variables</a></li>
+<li class="chapter" data-level="2.10" data-path="stata-basics.html"><a href="stata-basics.html#recoding-variables"><i class="fa fa-check"></i><b>2.10</b> Recoding variables</a></li>
+<li class="chapter" data-level="2.11" data-path="stata-basics.html"><a href="stata-basics.html#computing-a-new-variable"><i class="fa fa-check"></i><b>2.11</b> Computing a new variable</a></li>
+<li class="chapter" data-level="2.12" data-path="stata-basics.html"><a href="stata-basics.html#exercises"><i class="fa fa-check"></i><b>2.12</b> EXERCISES</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stata for Replicable Data Analysis: A Step-by-Step Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="stata-basics" class="section level1">
+<h1><span class="header-section-number">2</span> Stata Basics</h1>
+<p><br></p>
+<div id="purpose" class="section level4">
+<h4><span class="header-section-number">2.0.0.1</span> PURPOSE</h4>
+<p>In this class we’ll continue exploring some of Stata’s basic functionality.</p>
+<p><br></p>
+</div>
+<div id="a-template-for-do-files" class="section level2">
+<h2><span class="header-section-number">2.1</span> A template for <code>do</code> files</h2>
+<p>All <code>*.do</code> files for this course should follow the outline provided by the example do files. An example template is also posted on the course website. The point is to have a standard structure that will make sense for every new <code>*.do</code> file you create.</p>
+<p><br></p>
+</div>
+<div id="downloading-packages-.ado-files" class="section level2">
+<h2><span class="header-section-number">2.2</span> Downloading packages (<code>*.ado</code> files)</h2>
+<p>One of Stata’s great virtues is that it is highly extensible. Users are frequently creating new commands for Stata and posting them on the web. To get these commands, we use the <code>net search</code> command. From there, a list of possible matches will be presented. After choosing the one you want, go ahead and download it into Stata. You now have access to the new command.</p>
+<pre><code>. net search renvars
+(contacting http://www.stata.com)
+
+4 packages found (Stata Journal and STB listed first)
+-----------------------------------------------------
+
+dm88_1 from http://www.stata-journal.com/software/sj5-4
+    SJ5-4 dm88_1.  Update:  Renaming variables, multiply and... / Update:
+    Renaming variables, multiply and systematically / by Nicholas J. Cox,
+    Durham University, UK / Jeroen Weesie, Utrecht University, Netherlands /
+    Support:  n.j.cox@durham.ac.uk, j.weesie@fss.uu.nl / After installation,
+
+dm88 from http://www.stata.com/stb/stb60
+    STB-60 dm88.  Renaming variables, multiply and systematically / STB insert
+    by Nicholas J. Cox, University of Durham, UK / Jeroen Weesie, Utrecht
+    University, Netherlands / Support:  n.j.cox@durham.ac.uk
+    j.weesie@fss.uu.nl / After installation, see help renvars
+
+cleanchars from http://fmwww.bc.edu/RePEc/bocode/c
+    &#39;CLEANCHARS&#39;: module to replace specific characters or strings in variable
+    names and/or variable labels and/or string variable values and/or value
+    label names and levels with stated characters/strings (using 1-1 or m-1
+    match) / cleanchars is a program that helps out with replacing /
+
+renvarlab from http://fmwww.bc.edu/RePEc/bocode/r
+    &#39;RENVARLAB&#39;: module to rename variables, with option of using variable
+    labels to create new variable names / This command is an extension of
+    renvars (also available from / SSC), which renames a list of variables by
+    applying the given / transformation to all of the variables. It has all of</code></pre>
+<p><br></p>
+</div>
+<div id="loading-data" class="section level2">
+<h2><span class="header-section-number">2.3</span> Loading data</h2>
+<p>Stata data files end in <code>*.dta</code>. They are easily loaded with the <code>use</code> command. Some datasets, like the one we will use today, can be downloaded from the Stata website directly with the <code>webuse</code> command. While we won’t really use these toy datasets in our research, they can come in handy for small exercises (such as we will do today). They are also the datasets used in the Stata help files.</p>
+<pre><code>. webuse school, clear</code></pre>
+<p><br></p>
+</div>
+<div id="outsheet-dataset" class="section level2">
+<h2><span class="header-section-number">2.4</span> <code>outsheet</code> dataset</h2>
+<p>Stata can export data in almost any commonly-used format. The most commonly used format for data files is in what’s called ASCII delimited form, with a delimiter of either a comma or a tab. To export a dataset we use the <code>outsheet</code> command. You can specify which variables from the current dataset you’d like to export. <code>*.csv</code> is a good format for Microsoft Excel files.</p>
+<pre><code>. outsheet using &quot;school_data.csv&quot;, comma replace</code></pre>
+<p><br></p>
+<div id="quick-exercise" class="section level4">
+<h4><span class="header-section-number">2.4.0.1</span> QUICK EXERCISE</h4>
+<blockquote>
+<p>Export the current dataset in tab delimited format, then go ahead and open up the new dataset in Excel.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="insheet-dataset" class="section level2">
+<h2><span class="header-section-number">2.5</span> <code>insheet</code> dataset</h2>
+<p>Similarly, Stata can read in data in most any format using the <code>insheet</code> command:</p>
+<pre><code>. insheet using &quot;school_data.csv&quot;, comma clear
+(11 vars, 95 obs)</code></pre>
+<p><br></p>
+</div>
+<div id="describe-dataset" class="section level2">
+<h2><span class="header-section-number">2.6</span> <code>describe</code> dataset</h2>
+<p>Once you have your dataset in memory, you can <code>describe</code> it to get a quick overview of what you have:</p>
+<pre><code>. describe
+
+Contains data
+  obs:            95                          
+ vars:            11                          
+ size:         1,900                          
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+obs             byte    %8.0g                 
+pub12           byte    %8.0g                 
+pub34           byte    %8.0g                 
+pub5            byte    %8.0g                 
+private         byte    %8.0g                 
+years           byte    %8.0g                 
+school          byte    %8.0g                 
+loginc          float   %9.0g                 
+logptax         float   %9.0g                 
+vote            byte    %8.0g                 
+logeduc         float   %9.0g                 
+-------------------------------------------------------------------------------
+Sorted by:  
+     Note:  dataset has changed since last saved</code></pre>
+<p><br></p>
+</div>
+<div id="labeling-data-and-variables" class="section level2">
+<h2><span class="header-section-number">2.7</span> Labeling data and variables</h2>
+<p>Properly labeling datasets and variables will make life <em>much</em> easier for you and anyone else who uses your dataset. To label an entire dataset, use the <code>label data</code> command:</p>
+<pre><code>. label data &quot;Voting on school expenditures&quot;</code></pre>
+<p>To label variables, use the <code>label variable</code> command:</p>
+<pre><code>. label variable loginc &quot;Log of income&quot;
+
+. label variable vote &quot;Voted for public school funding&quot;</code></pre>
+<p>Make sure that your variable labels are highly descriptive and directional (e.g., instead of labeling a binary variable <strong>gender</strong> label it <strong>female</strong>). We can see our labels if once again <code>describe</code> our data:</p>
+<pre><code>. describe
+
+Contains data
+  obs:            95                          Voting on school expenditures
+ vars:            11                          
+ size:         1,900                          
+-------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------
+obs             byte    %8.0g                 
+pub12           byte    %8.0g                 
+pub34           byte    %8.0g                 
+pub5            byte    %8.0g                 
+private         byte    %8.0g                 
+years           byte    %8.0g                 
+school          byte    %8.0g                 
+loginc          float   %9.0g                 Log of income
+logptax         float   %9.0g                 
+vote            byte    %8.0g                 Voted for public school funding
+logeduc         float   %9.0g                 
+-------------------------------------------------------------------------------
+Sorted by:  
+     Note:  dataset has changed since last saved</code></pre>
+<p><br></p>
+</div>
+<div id="labeling-values-within-variables" class="section level2">
+<h2><span class="header-section-number">2.8</span> Labeling values within variables</h2>
+<p>For many binary/categorical variables, you’ll want to say what the underlying levels of the variable in the dataset mean. This is a two-part process. First you define the label values through <code>label define</code>; next you apply them to your particular variable with <code>label values &lt;variable&gt; &lt;label&gt;</code>:</p>
+<pre><code>. tab vote
+
+  Voted for |
+     public |
+     school |
+    funding |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |         36       37.89       37.89
+          1 |         59       62.11      100.00
+------------+-----------------------------------
+      Total |         95      100.00
+
+. label define voteopts 0 &quot;no&quot; 1 &quot;yes&quot;
+
+. label values vote voteopts
+
+. tab vote
+
+  Voted for |
+     public |
+     school |
+    funding |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         no |         36       37.89       37.89
+        yes |         59       62.11      100.00
+------------+-----------------------------------
+      Total |         95      100.00</code></pre>
+<p><br></p>
+</div>
+<div id="transforming-variables" class="section level2">
+<h2><span class="header-section-number">2.9</span> Transforming variables</h2>
+<p>Transforming a variable refers to using an operation to create a new version of an existing variable. In our dataset, both income and household spending on education are expressed in terms of the natural log of the existing variable. If we want to have the values of these variables in nominal scale, we need to use the <code>gen</code> command to create a new variable:</p>
+<pre><code>. gen inc = exp(loginc)
+
+. sum loginc inc
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+      loginc |        95    9.971017    .4118853      8.294      10.82
+         inc |        95    23093.31     8871.35     3999.8   50011.07</code></pre>
+<p><br></p>
+</div>
+<div id="recoding-variables" class="section level2">
+<h2><span class="header-section-number">2.10</span> Recoding variables</h2>
+<p>Recoding a variable involves changing the values of a variable based on its existing variables. We often want to recode variables in order to make them more useful for whatever analysis we’re working on. I’ll show you two different ways of recoding, one based on the <code>gen</code> command and a more complicated one using the <code>egen</code> commend with the <code>recode</code> command:</p>
+<pre><code>. gen inc_bin = 0
+
+. replace inc_bin = 1 if inc &gt; r(mean)
+(30 real changes made)
+
+. egen inc_q = cut(inc), group(4)
+
+. recode inc_q (0 = 1 &quot;First Quartile&quot;) ///
+&gt;     (1 = 2 &quot;2nd Quartile&quot;) ///
+&gt;     (2 = 3 &quot;3rd Quartile&quot;) ///
+&gt;     (3 = 4 &quot;4th Quartile&quot;), gen(new_inc_q)
+(95 differences between inc_q and new_inc_q)</code></pre>
+<p><br></p>
+<div id="quick-exercise-1" class="section level4">
+<h4><span class="header-section-number">2.10.0.1</span> QUICK EXERCISE</h4>
+<blockquote>
+<p>Create a variable that is equal to 1 if it’s greater than the median of income. Properly label the variable and its values.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="computing-a-new-variable" class="section level2">
+<h2><span class="header-section-number">2.11</span> Computing a new variable</h2>
+<p>Computing a variable involves using the values of other variables to create a new variable. For instance, to calculate an effective property tax rate, we want to divide the property tax value by income:</p>
+<pre><code>. gen ptax = exp(logptax)
+
+. gen taxrate = ptax / inc</code></pre>
+<p><br></p>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">2.12</span> EXERCISES</h2>
+<ol style="list-style-type: decimal">
+<li>Create a new binary variable for whether or not the family has any children in public schools. Properly label your variable and variable values.</li>
+<li>Create a new variable for percent of household income spent on education. Properly label your new variable.</li>
+<li>Create a new variable for persons with low, moderate and high percentages of spending on education. Label the variable and value labels properly.<br />
+</li>
+<li>Tabulate household spending and voting for public school funding. What do you find?</li>
+</ol>
+<p><br><br></p>
+<p><em>Init: 06 June 2015; Updated: 04 September 2017</em></p>
+<p><br></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
